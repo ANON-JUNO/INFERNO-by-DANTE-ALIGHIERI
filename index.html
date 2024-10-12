@@ -10,14 +10,17 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: url('https://media.istockphoto.com/id/1169495140/photo/the-surface-of-the-lava-background.jpg?s=612x612&w=0&k=20&c=SmmEexArJ-2BKmPgDxC5wCA5AWzkNQwzJg2sulwHFss=') no-repeat center center fixed;
+            background-size: cover; /* Ensures the background covers the entire screen */
+            color: #fff;
         }
 
         header {
-            background: #333;
-            color: #fff;
+            background: rgba(102, 0, 0, 0.9); /* Semi-transparent dark red to contrast with the background */
+            color: #ffcccb;
             padding: 20px 0;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         nav ul {
@@ -31,51 +34,61 @@
         }
 
         nav a {
-            color: #fff;
+            color: #ffcccb;
             text-decoration: none;
         }
 
         main {
             padding: 20px;
-            background: #fff;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background to improve readability */
             max-width: 800px;
             margin: 20px auto;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
 
-        h2 {
-            color: #333;
+        h2, h3 {
+            color: #ff6347;
         }
 
         img {
             max-width: 100%;
             height: auto;
             margin: 20px 0;
+            border: 2px solid #ff6347;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        p, ul li {
+            color: #fff;
         }
 
         footer {
             text-align: center;
             padding: 10px 0;
-            background: #333;
-            color: #fff;
+            background: rgba(102, 0, 0, 0.9);
+            color: #ffcccb;
             position: relative;
             bottom: 0;
             width: 100%;
         }
 
-        #credits {
-            margin-top: 10px;
-        }
-
         #credits h3 {
             margin: 10px 0;
             font-size: 1.2em;
-            color: #fff;
+            color: #ffcccb;
         }
 
         #credits p {
             margin: 5px 0;
+            color: #ffcccb;
+        }
+
+        a {
+            color: #ff6347;
+        }
+
+        a:hover {
             color: #fff;
         }
     </style>
@@ -167,7 +180,7 @@
             <h3>Treachery</h3>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Gustave_Dore_Inferno32.jpg/310px-Gustave_Dore_Inferno32.jpg" alt="The Ninth Circle: Treachery" />
             <p>
-                Treachery: For traitors, encased in ice, further subdivided into various regions based on the nature of their betrayal.
+                Treachery: For traitors, frozen in a lake of ice.
             </p>
         </section>
 
