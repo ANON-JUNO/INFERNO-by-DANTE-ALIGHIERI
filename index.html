@@ -4,213 +4,211 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inferno by Dante Alighieri</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: url('https://media.istockphoto.com/id/1169495140/photo/the-surface-of-the-lava-background.jpg?s=612x612&w=0&k=20&c=SmmEexArJ-2BKmPgDxC5wCA5AWzkNQwzJg2sulwHFss=') no-repeat center center fixed;
-            background-size: cover; /* Ensures the background covers the entire screen */
-            color: #fff;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            if (password === "JUST4FUN") {
+                document.getElementById("password-form").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
         }
 
-        header {
-            background: rgba(102, 0, 0, 0.9); /* Semi-transparent dark red to contrast with the background */
-            color: #ffcccb;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const eyeIcon = document.getElementById("eye-icon");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
         }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav a {
-            color: #ffcccb;
-            text-decoration: none;
-        }
-
-        main {
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background to improve readability */
-            max-width: 800px;
-            margin: 20px auto;
-            border-radius: 5px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        }
-
-        h2, h3 {
-            color: #ff6347;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 20px 0;
-            border: 2px solid #ff6347;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        p, ul li {
-            color: #fff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: rgba(102, 0, 0, 0.9);
-            color: #ffcccb;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        #credits h3 {
-            margin: 10px 0;
-            font-size: 1.2em;
-            color: #ffcccb;
-        }
-
-        #credits p {
-            margin: 5px 0;
-            color: #ffcccb;
-        }
-
-        a {
-            color: #ff6347;
-        }
-
-        a:hover {
-            color: #fff;
-        }
-    </style>
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
-    <header>
-        <h1>Inferno by Dante Alighieri</h1>
-        <nav>
-            <ul>
-                <li><a href="#information">Information</a></li>
-                <li><a href="#characters">Characters</a></li>
-                <li><a href="#circles">Circles of Hell</a></li>
-                <li><a href="#themes">Themes</a></li>
-                <li><a href="#influence">Influence</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="font-roboto bg-cover bg-center bg-fixed" style="background-image: url('https://media.istockphoto.com/id/1169495140/photo/the-surface-of-the-lava-background.jpg?s=612x612&w=0&k=20&c=SmmEexArJ-2BKmPgDxC5wCA5AWzkNQwzJg2sulwHFss=');">
+    <div id="password-form" class="flex items-center justify-center h-screen">
+        <div class="bg-black bg-opacity-70 p-8 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl font-bold text-red-500 mb-4">Enter Password</h2>
+            <div class="relative mb-4">
+                <input type="password" id="password" class="p-2 rounded w-full" placeholder="Password">
+                <button type="button" onclick="togglePasswordVisibility()" class="absolute right-2 top-2 text-gray-500">
+                    <i id="eye-icon" class="fas fa-eye"></i>
+                </button>
+            </div>
+            <button onclick="checkPassword()" class="bg-red-500 text-white px-4 py-2 rounded">Submit</button>
+        </div>
+    </div>
 
-    <main>
-        <section id="information">
-            <h2>Information</h2>
-            <p>
-                "Inferno" is the first part of Dante Alighieri's epic poem "The Divine Comedy," written in the early 14th century. It narrates Dante's journey through Hell, guided by the Roman poet Virgil, as he seeks to understand sin and its consequences. The poem is notable for its rich allegory, vivid imagery, and moral complexity, reflecting Dante’s views on sin, justice, and redemption.
-            </p>
-            <img src="https://cdn.britannica.com/19/43419-050-C640CD00/Dante-Reading-Divine-Comedy-Domenico-di-Michelino.jpg" alt="Dante Alighieri reading The Divine Comedy" />
-        </section>
+    <div id="content" style="display: none;">
+        <header class="bg-red-900 bg-opacity-90 text-pink-200 py-6 shadow-lg">
+            <div class="container mx-auto text-center">
+                <h1 class="text-3xl font-bold">Inferno by Dante Alighieri</h1>
+                <nav class="mt-4">
+                    <ul class="flex justify-center space-x-6">
+                        <li><a class="hover:text-white" href="#information">Information</a></li>
+                        <li><a class="hover:text-white" href="#characters">Characters</a></li>
+                        <li><a class="hover:text-white" href="#circles">Circles of Hell</a></li>
+                        <li><a class="hover:text-white" href="#themes">Themes</a></li>
+                        <li><a class="hover:text-white" href="#influence">Influence</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-        <section id="characters">
-            <h2>Characters</h2>
-            <ul>
-                <li><strong>Dante Alighieri:</strong> The protagonist and narrator, representing humanity.</li>
-                <li><strong>Virgil:</strong> Dante's guide, symbolizing reason and human wisdom.</li>
-                <li><strong>Beatrice:</strong> Dante's idealized love, who eventually guides him to Heaven.</li>
-                <li>Various sinners encountered in Hell, including historical figures, mythological characters, and contemporary personalities.</li>
-            </ul>
-        </section>
+        <main class="container mx-auto p-6 bg-black bg-opacity-70 mt-6 rounded-lg shadow-lg">
+            <section id="information" class="mb-8 flex flex-col md:flex-row">
+                <div class="md:w-2/3">
+                    <h2 class="text-2xl font-bold text-red-500 mb-4">Information</h2>
+                    <p class="text-white mb-4">
+                        "Inferno" is the first part of Dante Alighieri's epic poem "The Divine Comedy," written in the early 14th century. It narrates Dante's journey through Hell, guided by the Roman poet Virgil, as he seeks to understand sin and its consequences. The poem
+                        is notable for its rich allegory, vivid imagery, and moral complexity, reflecting Dante’s views on sin, justice, and redemption.
+                    </p>
+                </div>
+                <div class="md:w-1/3 md:pl-8">
+                    <img src="https://cdn.britannica.com/19/43419-050-C640CD00/Dante-Reading-Divine-Comedy-Domenico-di-Michelino.jpg" alt="Dante Alighieri reading The Divine Comedy" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                </div>
+            </section>
 
-        <section id="circles">
-            <h2>9 Circles of Hell</h2>
+            <section id="characters" class="mb-8">
+                <h2 class="text-2xl font-bold text-red-500 mb-4">Characters</h2>
+                <ul class="list-disc list-inside text-white">
+                    <li><strong>Dante Alighieri:</strong> The protagonist and narrator, representing humanity.</li>
+                    <li><strong>Virgil:</strong> Dante's guide, symbolizing reason and human wisdom.</li>
+                    <li><strong>Beatrice:</strong> Dante's idealized love, who eventually guides him to Heaven.</li>
+                    <li>Various sinners encountered in Hell, including historical figures, mythological characters, and contemporary personalities.</li>
+                </ul>
+            </section>
 
-            <h3>Limbo</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Harrowhell.jpg/170px-Harrowhell.jpg" alt="The First Circle: Limbo" />
-            <p>
-                Limbo: For virtuous non-Christians and unbaptized infants.
-            </p>
+            <section id="circles" class="mb-8">
+                <h2 class="text-2xl font-bold text-red-500 mb-4">9 Circles of Hell</h2>
 
-            <h3>Lust</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Inferno_Canto_5_line_4_Minos.jpg/260px-Inferno_Canto_5_line_4_Minos.jpg" alt="The Second Circle: Lust" />
-            <p>
-                Lust: For the lustful, swept eternally by tempestuous winds.
-            </p>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Limbo</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Limbo: For virtuous non-Christians and unbaptized infants.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Harrowhell.jpg/170px-Harrowhell.jpg" alt="The First Circle: Limbo" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
 
-            <h3>Gluttony</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Inferno_Canto_6_lines_24-26.jpg/220px-Inferno_Canto_6_lines_24-26.jpg" alt="The Third Circle: Gluttony" />
-            <p>
-                Gluttony: For the gluttonous, who suffer in a slushy, foul mire.
-            </p>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Lust</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Lust: For the lustful, swept eternally by tempestuous winds.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Inferno_Canto_5_line_4_Minos.jpg/260px-Inferno_Canto_5_line_4_Minos.jpg" alt="The Second Circle: Lust" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
 
-            <h3>Greed</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Gustave_Dor%C3%A9_-_Dante_Alighieri_-_Inferno_-_Plate_22_%28Canto_VII_-_Hoarders_and_Wasters%29.jpg/220px-Gustave_Dor%C3%A9_-_Dante_Alighieri_-_Inferno_-_Plate_22_%28Canto_VII_-_Hoarders_and_Wasters%29.jpg" alt="The Fourth Circle: Greed" />
-            <p>
-                Greed: For the avaricious and profligate, pushing heavy weights against each other.
-            </p>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Gluttony</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Gluttony: For the gluttonous, who suffer in a slushy, foul mire.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Inferno_Canto_6_lines_24-26.jpg/220px-Inferno_Canto_6_lines_24-26.jpg" alt="The Third Circle: Gluttony" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
 
-            <h3>Wrath</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Stradano_Inferno_Canto_08.jpg/220px-Stradano_Inferno_Canto_08.jpg" alt="The Fifth Circle: Wrath" />
-            <p>
-                Wrath: For the wrathful, who fight on the surface while the sullen languish below.
-            </p>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Greed</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Greed: For the avaricious and profligate, pushing heavy weights against each other.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Gustave_Dor%C3%A9_-_Dante_Alighieri_-_Inferno_-_Plate_22_%28Canto_VII_-_Hoarders_and_Wasters%29.jpg/220px-Gustave_Dor%C3%A9_-_Dante_Alighieri_-_Inferno_-_Plate_22_%28Canto_VII_-_Hoarders_and_Wasters%29.jpg" alt="The Fourth Circle: Greed" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
 
-            <h3>Heresy</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Stradano_Inferno_Map_Lower.jpg/260px-Stradano_Inferno_Map_Lower.jpg" alt="The Sixth Circle: Heresy" />
-            <p>
-                Heresy: For heretics, confined in fiery tombs.
-            </p>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Wrath</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Wrath: For the wrathful, who fight on the surface while the sullen languish below.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Stradano_Inferno_Canto_08.jpg/220px-Stradano_Inferno_Canto_08.jpg" alt="The Fifth Circle: Wrath" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
 
-            <h3>Violence</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Inf._12_anonimo_fiorentino.jpg" alt="The Seventh Circle: Violence" />
-            <p>
-                Violence: Divided into three rings for those violent against others, themselves, and God.
-            </p>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Heresy</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Heresy: For heretics, confined in fiery tombs.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Stradano_Inferno_Map_Lower.jpg/260px-Stradano_Inferno_Map_Lower.jpg" alt="The Sixth Circle: Heresy" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
 
-            <h3>Fraud</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Stradano_Inferno_Canto_20.jpg/220px-Stradano_Inferno_Canto_20.jpg" alt="The Eighth Circle: Fraud" />
-            <p>
-                Fraud: For deceivers and manipulators, suffering in various brutal ways.
-            </p>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Violence</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Violence: Divided into three rings for those violent against others, themselves, and God.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Inf._12_anonimo_fiorentino.jpg" alt="The Seventh Circle: Violence" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
 
-            <h3>Treachery</h3>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Gustave_Dore_Inferno32.jpg/310px-Gustave_Dore_Inferno32.jpg" alt="The Ninth Circle: Treachery" />
-            <p>
-                Treachery: For traitors, frozen in a lake of ice.
-            </p>
-        </section>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Fraud</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Fraud: For deceivers and manipulators, suffering in various brutal ways.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Stradano_Inferno_Canto_20.jpg/220px-Stradano_Inferno_Canto_20.jpg" alt="The Eighth Circle: Fraud" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
 
-        <section id="themes">
-            <h2>Themes</h2>
-            <ul>
-                <li><strong>Justice and Retribution:</strong> The idea of divine justice, represented by the punishment fitting the sin.</li>
-                <li><strong>Sin and Redemption:</strong> Exploration of human morality and the potential for salvation.</li>
-                <li><strong>The Nature of Evil:</strong> Examination of various forms of sin and moral failings.</li>
-                <li><strong>Human Reason vs. Faith:</strong> The relationship between reason (Virgil) and faith (Beatrice) as guides to understanding truth.</li>
-            </ul>
-        </section>
+                <h3 class="text-xl font-bold text-red-500 mb-2">Treachery</h3>
+                <div class="flex flex-col md:flex-row mb-4">
+                    <div class="md:w-2/3">
+                        <p class="text-white">Treachery: For traitors, frozen in a lake of ice.</p>
+                    </div>
+                    <div class="md:w-1/3 md:pl-8">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Gustave_Dore_Inferno32.jpg/310px-Gustave_Dore_Inferno32.jpg" alt="The Ninth Circle: Treachery" class="w-full h-auto border-2 border-red-500 shadow-lg mb-4">
+                    </div>
+                </div>
+            </section>
 
-        <section id="influence">
-            <h2>Influence</h2>
-            <p>
-                Dante's "Inferno" has had a profound impact on literature, theology, and the arts. It has shaped the Western conceptualization of the afterlife and has influenced numerous writers, artists, and thinkers. The vivid imagery and profound moral questions it raises continue to resonate, prompting discussions around morality, justice, and the human condition across centuries.
-            </p>
-        </section>
+            <section id="themes" class="mb-8">
+                <h2 class="text-2xl font-bold text-red-500 mb-4">Themes</h2>
+                <ul class="list-disc list-inside text-white">
+                    <li><strong>Justice and Retribution:</strong> The idea of divine justice, represented by the punishment fitting the sin.</li>
+                    <li><strong>Sin and Redemption:</strong> Exploration of human morality and the potential for salvation.</li>
+                    <li><strong>The Nature of Evil:</strong> Examination of various forms of sin and moral failings.</li>
+                    <li><strong>Human Reason vs. Faith:</strong> The relationship between reason (Virgil) and faith (Beatrice) as guides to understanding truth.</li>
+                </ul>
+            </section>
 
-        <footer>
+            <section id="influence" class="mb-8">
+                <h2 class="text-2xl font-bold text-red-500 mb-4">Influence</h2>
+                <p class="text-white">
+                    Dante's "Inferno" has had a profound impact on literature, theology, and the arts. It has shaped the Western conceptualization of the afterlife and has influenced numerous writers, artists, and thinkers. The vivid imagery and profound moral questions
+                    it raises continue to resonate, prompting discussions around morality, justice, and the human condition across centuries.
+                </p>
+            </section>
+        </main>
+
+        <footer class="bg-red-900 bg-opacity-90 text-pink-200 py-4 text-center">
             <div id="credits">
-                <h3>Credits</h3>
-                <p>Website: <a href="https://en.wikipedia.org/wiki/Inferno_(Dante)">https://en.wikipedia.org/wiki/Inferno_(Dante)</a></p>
-                <p>Web Developer: Delos Santos, Juno D.</p>
-                <p>Web Researcher: Cariñosa, Jingjing P.</p>
-                <p>Web Researcher: Bandiola, Dannah Rose T.</p>
-                <p>Hosted at: <a href="https://github.com">Github.com</a></p>
+                <h3 class="text-lg font-bold mb-2">Credits</h3>
+                <p>Website: <a href="https://en.wikipedia.org/wiki/Inferno_(Dante)" class="hover:text-white">https://en.wikipedia.org/wiki/Inferno_(Dante)</a></p>
+                <p>Coded By: Bandiola, Dannah Rose T.</p>
+                <p>Research by: Cariñosa, Jingjing P.</p>
+                <p>Hosted at: <a href="https://github.com" class="hover:text-white">Github.com</a></p>
             </div>
         </footer>
-    </main>
+    </div>
 </body>
 </html>
